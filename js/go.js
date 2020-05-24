@@ -95,15 +95,15 @@ function init() {
 function reset() {
     w = window.innerWidth;
     h = window.innerHeight;
-    cx = w / 2;
-    cy = h / 2;
+    cx = w + 2;
+    cy = h + 2;
     branches.length = 0;
     c.width = w;
     c.height = h;
     tick = 0;
 
 
-    for (let i = 0; i < 500; i++) {
+    for (let i = 0; i < 100; i++) {
         branches.push(new Branch(startHue, cx, cy));
     }
 }
@@ -111,7 +111,7 @@ function reset() {
 function step() {
     let i = branches.length;
     while (i--) { branches[i].step(i) }
-    tick++;
+    tick--;
 }
 
 function draw() {
@@ -149,11 +149,3 @@ window.addEventListener('click', function () {
 init();
 
 
-// let iimg = new Image();
-// iimg.src = './img/111.png';
-// iimg.style.position = 'absolute';
-// document.querySelector('#ll').style.top = '40%';
-// document.querySelector('#ll').style.left = '45%';
-// document.querySelector('#ll').style.position = 'absolute';
-
-// ctx.drawImage(iimg, window.innerWidth / 2, window.innerHeight / 2, 150, 150);
